@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relatórios - AR Ecológico</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav id="menu" class="menu"></nav>
+  <main class="conteudo">
+    <h2>Relatórios</h2>
+    <form id="formularioRelatorio" class="secao formulario">
+      <label>Tipo de relatório<select name="tipo"></select></label>
+      <label id="rotuloFiltro">Filtro<select name="filtro"></select></label>
+      <label>Data inicial<input type="date" name="dataInicial"></label>
+      <label>Data final<input type="date" name="dataFinal"></label>
+      <div class="linha-inteira">
+        <strong>Informações do relatório</strong>
+        <div id="colunasRelatorio" class="lista-colunas"></div>
+      </div>
+      <p id="mensagemRelatorio" class="mensagem" role="status"></p>
+      <div class="rodape"><button type="submit">Gerar PDF</button></div>
+    </form>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+  <script src="../script/config.js"></script>
+  <script src="../script/autenticacao.js"></script>
+  <script src="../script/dados-exemplo.js"></script>
+  <script src="../script/script.js"></script>
+  <script src="../script/configuracoes.js"></script>
+  <script src="../script/relatorios.js"></script>
+</body>
+</html>

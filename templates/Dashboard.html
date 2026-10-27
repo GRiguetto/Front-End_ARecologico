@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - AR Ecológico</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav id="menu" class="menu"></nav>
+  <main class="conteudo">
+    <div class="topo">
+      <h2>Dashboard</h2>
+      <label>Período das OS
+        <select id="periodo">
+          <option value="30">Últimos 30 dias</option><option value="90">Últimos 90 dias</option>
+          <option value="180" selected>Últimos 6 meses</option><option value="0">Todo o período</option>
+        </select></label>
+    </div>
+    <div id="cartoes" class="cartoes"></div>
+    <div class="graficos">
+      <div class="secao largo"><h3>Faturamento por mês (OS concluídas, últimos 6 meses)</h3><div id="graficoFaturamento"></div></div>
+      <div class="secao"><h3>OS por status</h3><div id="graficoStatus"></div></div>
+      <div class="secao"><h3>OS por tipo</h3><div id="graficoTipoOs"></div></div>
+      <div class="secao"><h3>Formas de pagamento (OS concluídas)</h3><div id="graficoPagamento"></div></div>
+      <div class="secao"><h3>Faturamento por funcionário</h3><div id="graficoFuncionarios"></div></div>
+      <div class="secao"><h3>Contratos por tipo</h3><div id="graficoTipoContrato"></div></div>
+      <div class="secao"><h3>Clientes por cidade</h3><div id="graficoCidade"></div></div>
+      <div class="secao"><h3>Pessoa física e jurídica</h3><div id="graficoTipoCliente"></div></div>
+      <div class="secao largo"><h3>Últimas ordens de serviço</h3><div id="ultimasOs"></div></div>
+      <div class="secao largo"><h3>Contratos vencendo em 30 dias</h3><div id="contratosVencendo"></div></div>
+    </div>
+  </main>
+  <script src="../script/config.js"></script>
+  <script src="../script/autenticacao.js"></script>
+  <script src="../script/dados-exemplo.js"></script>
+  <script src="../script/script.js"></script>
+  <script src="../script/configuracoes.js"></script>
+</body>
+</html>

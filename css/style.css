@@ -1,0 +1,971 @@
+/* =====================================================================
+   AR Ecológico - style.css
+
+   Índice
+    1. Variáveis (cores e sombras)
+    2. Base
+    3. Menu lateral
+    4. Conteúdo e seções
+    5. Formulários e botões
+    6. Tabelas
+    7. Janelas (dialog)
+    8. Início e cartões
+    9. Dashboard
+   10. Login
+   11. Configurações do sistema
+   12. Relatórios
+   13. Temas e acessibilidade
+   14. Responsividade
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+
+/* ---------- 1. Variáveis ---------- */
+:root {
+  --verde: #1b7f5c;
+  --verde-escuro: #14604a;
+  --fundo: #f1f6f5;
+  --texto: #1f2d2a;
+  --borda: #dbe5e2;
+  --perigo: #c0392b;
+  --superficie: #fff;
+  --suave: color-mix(in srgb, var(--texto) 62%, var(--superficie));
+  --sombra: 0 1px 2px rgba(20, 60, 50, .06), 0 6px 16px rgba(20, 60, 50, .06);
+}
+
+
+/* ---------- 2. Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Nunito', Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 1.375rem;
+}
+
+h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* ---------- 3. Menu lateral ---------- */
+.menu {
+  width: 14.5rem;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 12px;
+  overflow-y: auto;
+  background: var(--superficie);
+  border-right: 1px solid var(--borda);
+}
+
+.menu h1 {
+  margin: 0;
+  padding: 0 10px 14px;
+  font-size: 1.2rem;
+  color: var(--verde);
+}
+
+.menu .links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu a {
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.menu a:hover {
+  background: color-mix(in srgb, var(--verde) 12%, var(--superficie));
+}
+
+.menu a.ativo {
+  background: var(--verde);
+  color: #fff;
+}
+
+.menu .usuario {
+  margin-top: auto;
+  padding: 12px 10px 0;
+  border-top: 1px solid var(--borda);
+  font-size: .875rem;
+}
+
+.menu .usuario button {
+  width: 100%;
+  margin-top: 8px;
+}
+
+
+/* ---------- 4. Conteúdo e seções ---------- */
+.conteudo {
+  flex: 1;
+  min-width: 0;
+  padding: 28px;
+  overflow-x: auto;
+}
+
+.secao {
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+}
+
+.barra-ferramentas {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.barra-ferramentas input {
+  flex: 1;
+}
+
+
+/* ---------- 5. Formulários e botões ---------- */
+input,
+select,
+textarea,
+button {
+  padding: 9px 12px;
+  font: inherit;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+}
+
+input,
+select,
+textarea {
+  background: var(--superficie);
+  color: var(--texto);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid color-mix(in srgb, var(--verde) 45%, transparent);
+  border-color: var(--verde);
+}
+
+button {
+  cursor: pointer;
+  background: var(--verde);
+  color: #fff;
+  border-color: var(--verde);
+  font-weight: 700;
+  transition: background .2s;
+}
+
+button:hover {
+  background: var(--verde-escuro);
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+button.secundario {
+  background: var(--superficie);
+  color: var(--texto);
+  border-color: var(--borda);
+}
+
+button.perigo {
+  background: var(--perigo);
+  border-color: var(--perigo);
+}
+
+
+/* ---------- 6. Tabelas ---------- */
+.tabela-rolagem {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--borda);
+}
+
+th {
+  background: color-mix(in srgb, var(--verde) 8%, var(--superficie));
+  font-size: .875rem;
+}
+
+tbody tr:hover {
+  background: color-mix(in srgb, var(--verde) 5%, var(--superficie));
+}
+
+td.acoes {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.vazio {
+  padding: 16px;
+  text-align: center;
+  color: var(--suave);
+}
+
+/* Etiqueta colorida do status da OS */
+.selo {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #6f7f7a;
+  color: #fff;
+  font-size: .8125rem;
+  font-weight: 700;
+}
+
+.selo-ABERTA {
+  background: #1f6fb2;
+}
+
+.selo-EM_ANDAMENTO {
+  background: #c2620f;
+}
+
+.selo-CONCLUIDA {
+  background: #1b7f5c;
+}
+
+
+/* ---------- 7. Janelas (dialog) ---------- */
+dialog {
+  width: min(560px, 92vw);
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  padding: 22px;
+  overflow-y: auto;
+  background: var(--superficie);
+  color: var(--texto);
+  border: none;
+  border-radius: 14px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, .4);
+}
+
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.formulario .linha-inteira,
+.formulario .rodape {
+  grid-column: 1 / -1;
+}
+
+.rodape {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+
+/* ---------- 8. Início e cartões ---------- */
+.cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.cartao {
+  padding: 16px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+  color: inherit;
+  text-decoration: none;
+}
+
+a.cartao:hover {
+  border-color: var(--verde);
+}
+
+.cartao small {
+  display: block;
+  color: var(--suave);
+  font-weight: 600;
+}
+
+.cartao strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.625rem;
+  color: var(--verde);
+}
+
+.atalho b {
+  display: block;
+  font-size: 1.0625rem;
+  color: var(--verde);
+}
+
+.atalho span {
+  color: var(--suave);
+  font-size: .875rem;
+}
+
+
+/* ---------- 9. Dashboard ---------- */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.topo h2 {
+  margin: 0;
+}
+
+.topo label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.graficos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.graficos .secao {
+  margin-bottom: 0;
+}
+
+.graficos .largo {
+  grid-column: 1 / -1;
+}
+
+/* Barras horizontais */
+.barra {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  font-size: .875rem;
+}
+
+.barra .nome {
+  width: 140px;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.barra .preenchimento {
+  min-width: 4px;
+  height: 18px;
+  background: var(--verde);
+  border-radius: 6px;
+}
+
+.barra > span:last-child {
+  white-space: nowrap;
+}
+
+/* Colunas (faturamento por mês) */
+.colunas {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  height: 190px;
+}
+
+.coluna {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+.coluna small {
+  color: var(--suave);
+  font-size: .75rem;
+  white-space: nowrap;
+}
+
+.coluna .pilar {
+  width: 100%;
+  min-height: 3px;
+  max-height: 75%;
+  background: var(--verde);
+  border-radius: 8px 8px 0 0;
+}
+
+/* Rosca (gráfico circular) */
+.rosca-area {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.rosca {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.rosca::after {
+  content: '';
+  position: absolute;
+  inset: 26px;
+  border-radius: 50%;
+  background: var(--superficie);
+}
+
+.rosca span {
+  position: relative;
+  z-index: 1;
+  font-size: 1.375rem;
+  font-weight: 800;
+}
+
+.legenda {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: .875rem;
+  text-transform: capitalize;
+}
+
+.legenda i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+
+/* ---------- 10. Login ---------- */
+.pagina-login {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.login {
+  width: min(400px, 100%);
+  margin: 0;
+  padding: 28px;
+  text-align: center;
+}
+
+.login h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.login .ilustracao {
+  display: block;
+  width: 150px;
+  margin: 0 auto 8px;
+  color: var(--verde);
+}
+
+.login .subtitulo {
+  margin: 4px 0 20px;
+  color: var(--suave);
+}
+
+.login form {
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+
+.login label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.erro {
+  min-height: 1.25em;
+  margin: 0;
+  color: var(--perigo);
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.dica {
+  margin: 16px 0 0;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--fundo);
+  color: var(--suave);
+  font-size: .8125rem;
+}
+
+
+/* ---------- 11. Configurações do sistema ---------- */
+.botao-configuracoes {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+}
+
+.configuracoes fieldset {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 12px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+}
+
+.configuracoes label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.configuracoes .rodape {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* ---------- 12. Relatórios ---------- */
+.lista-colunas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(190px, 100%), 1fr));
+  gap: 6px;
+}
+
+.lista-colunas label {
+  flex-direction: row;
+  align-items: center;
+}
+
+.mensagem {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+
+/* ---------- 13. Temas e acessibilidade (classes aplicadas no <html>) ---------- */
+:root[data-tema="escuro"] {
+  --fundo: #121c19;
+  --texto: #e6efec;
+  --borda: #2f4640;
+  --superficie: #1c2b26;
+}
+
+.compacta th,
+.compacta td {
+  padding: 3px 8px;
+}
+
+.zebra tbody tr:nth-child(even) {
+  background: var(--fundo);
+}
+
+.fonte-legivel body {
+  font-family: Verdana, Tahoma, sans-serif;
+  letter-spacing: .03em;
+}
+
+.espacamento-linhas body {
+  line-height: 1.8;
+  word-spacing: .12em;
+}
+
+.foco-forte :focus-visible {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+}
+
+.sem-animacoes * {
+  transition: none !important;
+  animation: none !important;
+}
+
+.alto-contraste {
+  --fundo: #000;
+  --texto: #fff;
+  --borda: #fff;
+  --superficie: #000;
+  --verde: #ffd400;
+  --verde-escuro: #000;
+}
+
+.alto-contraste button {
+  color: #000;
+}
+
+.alto-contraste button.secundario {
+  color: #fff;
+}
+
+.alto-contraste .menu {
+  border-right: 2px solid #fff;
+}
+
+.alto-contraste .menu a.ativo {
+  background: #ffd400;
+  color: #000;
+}
+
+.alto-contraste a {
+  color: #ffd400;
+}
+
+
+/* =====================================================================
+   14. Responsividade
+   Ordem: do maior para o menor (notebook -> tablet -> celular).
+   ===================================================================== */
+
+/* Notebooks e monitores pequenos */
+@media (max-width: 1100px) {
+  .menu {
+    width: 12rem;
+  }
+
+  .conteudo {
+    padding: 20px;
+  }
+
+  .secao {
+    padding: 16px;
+  }
+
+  .graficos {
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  }
+}
+
+/* Tablets: o menu vira uma barra no topo, com os links rolando para o lado */
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+  }
+
+  .menu {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "marca usuario"
+      "links links";
+    align-items: center;
+    gap: 6px 12px;
+    padding: 10px 14px;
+    overflow: visible;
+    border-right: 0;
+    border-bottom: 1px solid var(--borda);
+  }
+
+  .menu h1 {
+    grid-area: marca;
+    padding: 0;
+  }
+
+  .menu .links {
+    grid-area: links;
+    flex-direction: row;
+    padding-bottom: 4px;
+    overflow-x: auto;
+  }
+
+  .menu a {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .menu .usuario {
+    grid-area: usuario;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+  }
+
+  .menu .usuario button {
+    width: auto;
+    margin-top: 0;
+    padding: 6px 12px;
+  }
+
+  .menu .usuario strong {
+    display: inline-block;
+    max-width: 8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+
+  .alto-contraste .menu {
+    border-right: 0;
+    border-bottom: 2px solid #fff;
+  }
+
+  /* Espaço no fim da página para o botão de configurações não cobrir o conteúdo */
+  .conteudo {
+    padding: 16px 16px 88px;
+  }
+}
+
+/* A barra do topo só fica fixa quando a tela tem altura de sobra (não em celular deitado) */
+@media (max-width: 900px) and (min-height: 561px) {
+  .menu {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+  }
+}
+
+/* Celulares */
+@media (max-width: 640px) {
+  .conteudo {
+    padding: 12px 12px 88px;
+  }
+
+  .secao {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  /* 16px evita o zoom automático do iPhone ao tocar nos campos */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  button {
+    min-height: 44px;
+  }
+
+  .menu .usuario button {
+    min-height: 36px;
+  }
+
+  .barra-ferramentas {
+    flex-wrap: wrap;
+  }
+
+  .barra-ferramentas input {
+    flex-basis: 100%;
+  }
+
+  .barra-ferramentas button {
+    flex: 1;
+  }
+
+  /* Tabela vira uma lista de cartões: cada linha mostra "rótulo: valor" */
+  .tabela-rolagem table,
+  .tabela-rolagem tbody,
+  .tabela-rolagem tr,
+  .tabela-rolagem td {
+    display: block;
+  }
+
+  .tabela-rolagem thead {
+    display: none;
+  }
+
+  .tabela-rolagem tr {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+  }
+
+  .tabela-rolagem td {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 0;
+    border-bottom: 0;
+    text-align: right;
+  }
+
+  .tabela-rolagem td::before {
+    content: attr(data-rotulo);
+    flex-shrink: 0;
+    color: var(--suave);
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .tabela-rolagem td:not([data-rotulo])::before {
+    content: none;
+  }
+
+  .tabela-rolagem td.acoes {
+    width: auto;
+    justify-content: flex-end;
+    padding-top: 10px;
+    white-space: normal;
+  }
+
+  .tabela-rolagem td.vazio {
+    display: block;
+    text-align: center;
+  }
+
+  /* Janelas e formulários em uma coluna só */
+  dialog {
+    width: calc(100vw - 24px);
+    padding: 16px;
+  }
+
+  .formulario {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rodape button {
+    flex: 1;
+  }
+
+  .configuracoes label {
+    flex-wrap: wrap;
+  }
+
+  /* Cartões do início e do dashboard */
+  .cartoes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .cartao.atalho {
+    grid-column: 1 / -1;
+  }
+
+  .cartao strong {
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+
+  /* Dashboard */
+  .topo label {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .topo select {
+    flex: 1;
+    max-width: 60%;
+  }
+
+  .barra .nome {
+    width: 100px;
+  }
+
+  .colunas {
+    gap: 6px;
+    height: 170px;
+  }
+
+  .coluna small {
+    font-size: .6875rem;
+  }
+
+  .rosca-area {
+    justify-content: center;
+  }
+
+  .login {
+    padding: 22px;
+  }
+}
+
+/* Celulares pequenos (até 380px) */
+@media (max-width: 380px) {
+  .cartoes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .barra .nome {
+    width: 84px;
+  }
+
+  .login .ilustracao {
+    width: 120px;
+  }
+}
